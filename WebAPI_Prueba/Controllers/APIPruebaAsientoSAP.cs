@@ -19,19 +19,6 @@ namespace WebAPI_Prueba.Controllers
             _logger = logger;
         }
 
-        //[HttpGet(Name = "GetWeatherForecast")]
-        //public IEnumerable<WeatherForecast> Get()
-        //{
-        //    Thread.Sleep(30000);
-        //    return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-        //    {
-        //        Date = DateTime.Now.AddDays(index),
-        //        TemperatureC = Random.Shared.Next(-20, 55),
-        //        Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-        //    })
-        //    .ToArray();
-        //}
-
         [HttpPost("login")]
         public ERptaAsientosSAP Login()
         {
@@ -68,6 +55,35 @@ namespace WebAPI_Prueba.Controllers
             return respuesta;
             
             
+        }
+
+        [HttpPost("consultarNomina")]
+        public PAYROLL_ERsptaNomina ConsultarNomina()
+        {
+            int MyValue;
+            Random rnd = new Random();
+            MyValue = rnd.Next(1, 20);
+            if (MyValue > 10)
+            {
+                Thread.Sleep(10000);
+            }
+            else
+            {
+                Thread.Sleep(30000);
+            }
+
+            var respuesta = new PAYROLL_ERsptaNomina();
+            respuesta.IT_NOMINA_CAB = new PAYROLL_ERsptaNominaItemCab
+            {
+                item = new PAYROLL_ERsptaNominaItem
+                {
+                    ESTADO = "2", // Aprobado
+                    IDENT = "" // ID ASIENTO
+                }
+            };
+
+            return respuesta;
+
         }
     }
 }
