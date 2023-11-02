@@ -66,4 +66,15 @@
         public string? D_GJAHR { get; set; }
     }
 
+    public class PAYROLL_ENominaConsulta
+    {
+        public PAYROLL_EnominaConsultaParametro? IT_CONSULTA { get; set; }
+    }
+
+    public class PAYROLL_EnominaConsultaParametro
+    {
+        public string? IDENT { get; set; }
+        public string? BUKRS { get; set; }
+        public string? ESTADO { get; set; }
+    }
 }

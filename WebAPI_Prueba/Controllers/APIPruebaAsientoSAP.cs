@@ -58,7 +58,7 @@ namespace WebAPI_Prueba.Controllers
         }
 
         [HttpPost("consultarNomina")]
-        public PAYROLL_ERsptaNomina ConsultarNomina()
+        public PAYROLL_ERsptaNomina ConsultarNomina([FromBody] PAYROLL_ENominaConsulta parametros)
         {
             int MyValue;
             Random rnd = new Random();
@@ -78,7 +78,7 @@ namespace WebAPI_Prueba.Controllers
                 item = new PAYROLL_ERsptaNominaItem
                 {
                     ESTADO = "2", // Aprobado
-                    IDENT = "" // ID ASIENTO
+                    IDENT = parametros.IT_CONSULTA.IDENT // ID ASIENTO
                 }
             };
 
